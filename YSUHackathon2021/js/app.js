@@ -242,31 +242,20 @@ const showTeas = () => {
       (output += `
               <div class="card">
                 <button type="button" class="collapsible">${name}</button>
+                <div class="content">
                   <p>${description}</p>
                   <p><a href="${link}">Buy</a></p>
-                  <p>
-                    <div id="stopwatch">
-                        <span class="time" id="display">00:00:00</span>
-                        <div class="controls">
-                            <button class="buttonPlay">
-                              <img id="playButton" src="icons/play-button.svg" />
-                              <img id="pauseButton" src="icons/pause-button.svg" />
-                            </button>
-                            <button class="buttonReset">
-                              <img id="resetButton" src="icons/reset-button.svg" />
-                            </button>
-                        </div>
-                    </div>
-                  </p>
-                <div class="content">
+                </div>
+                <div class="container">
                 </div>
               </div>
               `)
   )
   document.getElementById("container").innerHTML += output
 }
+showTeas();
 
-document.addEventListener("DOMContentLoaded", showTeas)
+// document.addEventListener("DOMContentLoaded", showTeas)
 
 
 
@@ -307,6 +296,7 @@ function print(txt) {
 // Create "start", "pause" and "reset" functions
 
 function start() {
+    console.log("start clicked")
   startTime = Date.now() - elapsedTime;
   timerInterval = setInterval(function printTime() {
     elapsedTime = Date.now() - startTime;
@@ -335,7 +325,7 @@ function showButton(buttonKey) {
   buttonToShow.style.display = "block";
   buttonToHide.style.display = "none";
 }
-// Create event listeners
+// Create event listeners for the timer
 
 let playButton = document.getElementById("playButton");
 let pauseButton = document.getElementById("pauseButton");
